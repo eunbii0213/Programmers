@@ -65,50 +65,47 @@ public class Main{
         
        
         
-		int max=0;
+		//int max=0;
         
         String number="";
+        int j=0;
         for(int i=0;i<tenUnder;i++) {
-        	number+=tenUnderArr[i];
+        	
+        	if(tenOverArr[j]/10 == tenUnderArr[i]) {
+        		
+        		if(j<tenOver) {
+        			
+	        		if((tenOverArr[j]%10)>tenUnderArr[i]) {
+	        			
+	        			number+=tenOverArr[j];
+	        			j++;
+	        			i--;
+	        			continue;
+	        		}
+	        		
+	        		else {
+	            		number+=tenUnderArr[i];
+	            		continue;
+	            	}
+        		}
+        		
+        	}//십의 자리 수가 같고 일의 자리수가 0이상이라면 십의 자리수를 넣는게 더 큰숫자임
+        	
+        	else {
+        		number+=tenUnderArr[i];
+        	}
+        	
+        	
         }
         
-        for(int i=0;i<tenOver;i++) {
-        	number+=tenOverArr[i];
-        }
+       while(j<tenOver) {
+    	   
+    	   number+=tenOverArr[j];
+    	   j++;
+    	   
+       }
         
-      
-        
-        
-       
-		
-		/*
-		 * int max=0;
-		 * 
-		 * for(int i=0;i<count;i++) { number=""; number+=list.get(i); for(int
-		 * j=0;j<count;j++) {
-		 * 
-		 * if(j==i) { continue; }
-		 * 
-		 * number+=list.get(j); }
-		 * 
-		 * 
-		 * if(max<Integer.parseInt(number)) { max=Integer.parseInt(number); }
-		 * 
-		 * 
-		 * number=""; number+=list.get(i);
-		 * 
-		 * for(int j=count-1;j>=0;j--) {
-		 * 
-		 * if(j==i) { continue; }
-		 * 
-		 * number+=list.get(j); }
-		 * 
-		 * if(max<Integer.parseInt(number)) { max=Integer.parseInt(number); }
-		 * 
-		 * 
-		 * } //수를 만듬
-		 */		 
-		
+
         System.out.println(number);
         
 		
